@@ -1,6 +1,6 @@
 from langchain_community.llms import Ollama
 
-# Initialize the LLM with a generic model (replace 'base_model' with the actual model name if necessary)
+# Initialize the LLM
 llm = Ollama(base_url='http://localhost:11434', model='llama3')
 
 # Define a function to repeatedly ask a question until a valid response is received
@@ -44,7 +44,7 @@ def run_bot():
             if user_question.lower() in ['exit', 'quit', 'no']:
                 print("Goodbye!")
                 break
-            # Use Langchain to process the question
+            # Use LLM model to process the question
             response = llm.invoke(user_question)
             print("Answer:", response)
 
